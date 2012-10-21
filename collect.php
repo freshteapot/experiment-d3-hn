@@ -27,33 +27,33 @@ $timeStamp = time();
 $position = 1;
 foreach($nodes as $node) {
     //We only want links.
-	$link = $xpath->evaluate("string(span[@class='comhead'])", $node);
-	if (empty($link)) {
+    $link = $xpath->evaluate("string(span[@class='comhead'])", $node);
+    if (empty($link)) {
         continue;
     }
 
-	$item = array(
-		"id" => $xpath->evaluate("string(../following-sibling::tr/td[2]/a[last()]/@href)", $node),
-		"title" => $xpath->evaluate("string(a/.)", $node),
-		"url" => $xpath->evaluate("string(a/@href)", $node),
-		"domain" => $xpath->evaluate("string(span/.)", $node),
-		"score" => $xpath->evaluate("string(../following-sibling::tr/td[2]/span/.)", $node),
-		"timeStamp" => $timeStamp,
-	);
+    $item = array(
+        "id" => $xpath->evaluate("string(../following-sibling::tr/td[2]/a[last()]/@href)", $node),
+        "title" => $xpath->evaluate("string(a/.)", $node),
+        "url" => $xpath->evaluate("string(a/@href)", $node),
+        "domain" => $xpath->evaluate("string(span/.)", $node),
+        "score" => $xpath->evaluate("string(../following-sibling::tr/td[2]/span/.)", $node),
+        "timeStamp" => $timeStamp,
+    );
 
     //Post-processing
     $item["id"] = substr($item["id"], 8);
 
-	list($item["score"], ) = explode(" ", $item["score"], 2);
+    list($item["score"], ) = explode(" ", $item["score"], 2);
 
-	$item["domain"] = trim($item["domain"]);
-	$item["domain"] = trim($item["domain"], "()");
+    $item["domain"] = trim($item["domain"]);
+    $item["domain"] = trim($item["domain"], "()");
 
     //Position on the frontpage
-	$item["position"] = $position;
+    $item["position"] = $position;
 
-	$data = json_encode($item) . PHP_EOL;
-	error_log($data, "3", $fileToLogData);
+    $data = json_encode($item) . PHP_EOL;
+    error_log($data, "3", $fileToLogData);
 
-	$position++;
+    $position++;
 }
