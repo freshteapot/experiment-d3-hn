@@ -14,10 +14,10 @@ if (empty($html)) {
 
 //Disable error messages.
 libxml_use_internal_errors(true);
-$dom = new DOMDocument();
+$dom = new \DOMDocument();
 $a = $dom->loadHTML($html);
 libxml_clear_errors();
-$xpath = new DOMXpath($dom);
+$xpath = new \DOMXpath($dom);
 
 $query = "//td[@class='title']";
 $nodes = $xpath->query($query);
