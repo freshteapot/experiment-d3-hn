@@ -1,0 +1,1 @@
+0,30 * * * * /usr/bin/php /home/grunt/git/experiment-d3-hn/collect.php
