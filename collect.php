@@ -9,7 +9,7 @@ $html = file_get_contents($url);
 
 //Hopefully this should never happen
 if (empty($html)) {
-	exit;
+    exit;
 }
 
 //Disable error messages.
