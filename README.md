@@ -10,7 +10,8 @@ An experiment to explore using d3.js to visualise data collected from Hacker New
 
 #Status
 
-Collecting Data
+- First attempt at a bar chart.
+- 2 weeks of data collected.
 
 
 ##What is d3.js
@@ -21,3 +22,6 @@ Collecting Data
 
 [Hacker News](http://news.ycombinator.com/ "Hacker News") a website to get information mostly related to tech.
 
+
+#Pictures
+![Sample output](https://raw.github.com/freshteapot/experiment-d3-hn/master/sample.barchart.top20.hackernews.thumb.png)
